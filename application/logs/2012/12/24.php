@@ -1,0 +1,36 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2012-12-24 10:23:48 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: spams ~ APPPATH/views/messages/list.php [ 6 ] in /Users/dima/sites/bayes/application/views/messages/list.php:6
+2012-12-24 10:23:48 --- DEBUG: #0 /Users/dima/sites/bayes/application/views/messages/list.php(6): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/dima/sit...', 6, Array)
+#1 /Users/dima/sites/bayes/system/classes/Kohana/View.php(61): include('/Users/dima/sit...')
+#2 /Users/dima/sites/bayes/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/dima/sit...', Array)
+#3 /Users/dima/sites/bayes/system/classes/Kohana/View.php(228): Kohana_View->render()
+#4 /Users/dima/sites/bayes/application/views/layouts/main.php(26): Kohana_View->__toString()
+#5 /Users/dima/sites/bayes/system/classes/Kohana/View.php(61): include('/Users/dima/sit...')
+#6 /Users/dima/sites/bayes/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/dima/sit...', Array)
+#7 /Users/dima/sites/bayes/system/classes/Kohana/View.php(228): Kohana_View->render()
+#8 /Users/dima/sites/bayes/system/classes/Kohana/Response.php(160): Kohana_View->__toString()
+#9 /Users/dima/sites/bayes/application/classes/My/Layout/Controller.php(98): Kohana_Response->body(Object(View))
+#10 /Users/dima/sites/bayes/application/classes/Controller/Messages.php(36): My_Layout_Controller->render()
+#11 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Messages->action_list()
+#12 [internal function]: Kohana_Controller->execute()
+#13 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Messages))
+#14 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#15 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#16 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#17 {main} in /Users/dima/sites/bayes/application/views/messages/list.php:6
+2012-12-24 10:58:41 --- EMERGENCY: Database_Exception [ 1146 ]: Table 'bayes.words' doesn't exist [ SHOW FULL COLUMNS FROM `words` ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php:358
+2012-12-24 10:58:41 --- DEBUG: #0 /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php(358): Kohana_Database_MySQL->query(1, 'SHOW FULL COLUM...', false)
+#1 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(1665): Kohana_Database_MySQL->list_columns('words')
+#2 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(441): Kohana_ORM->list_columns()
+#3 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(386): Kohana_ORM->reload_columns()
+#4 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(254): Kohana_ORM->_initialize()
+#5 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(46): Kohana_ORM->__construct(NULL)
+#6 /Users/dima/sites/bayes/application/classes/Controller/Messages.php(43): Kohana_ORM::factory('Word')
+#7 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Messages->action_words_list()
+#8 [internal function]: Kohana_Controller->execute()
+#9 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Messages))
+#10 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#11 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#12 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#13 {main} in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php:358

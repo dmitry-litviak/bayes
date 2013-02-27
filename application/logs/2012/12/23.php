@@ -1,0 +1,98 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2012-12-23 15:20:43 --- EMERGENCY: Database_Exception [ 1146 ]: Table 'bayes.users' doesn't exist [ SHOW FULL COLUMNS FROM `users` ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php:358
+2012-12-23 15:20:43 --- DEBUG: #0 /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php(358): Kohana_Database_MySQL->query(1, 'SHOW FULL COLUM...', false)
+#1 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(1665): Kohana_Database_MySQL->list_columns('users')
+#2 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(441): Kohana_ORM->list_columns()
+#3 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(386): Kohana_ORM->reload_columns()
+#4 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(254): Kohana_ORM->_initialize()
+#5 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(46): Kohana_ORM->__construct(NULL)
+#6 /Users/dima/sites/bayes/modules/orm/classes/Kohana/Auth/ORM.php(75): Kohana_ORM::factory('User')
+#7 /Users/dima/sites/bayes/modules/auth/classes/Kohana/Auth.php(91): Kohana_Auth_ORM->_login('dmitry@yahoo.co...', '123123', false)
+#8 /Users/dima/sites/bayes/application/classes/Controller/Session.php(15): Kohana_Auth->login('dmitry@yahoo.co...', '123123')
+#9 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Session->action_login()
+#10 [internal function]: Kohana_Controller->execute()
+#11 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Session))
+#12 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#13 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#14 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#15 {main} in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php:358
+2012-12-23 15:21:51 --- EMERGENCY: Database_Exception [ 1146 ]: Table 'bayes.trip_places' doesn't exist [ SELECT `trips`.* FROM `trip_places` JOIN `trips` ON (`trips`.`id` = `trip_places`.`trip_id`) JOIN `users` ON (`users`.`id` = `trips`.`user_id`) WHERE `trip_places`.`date_from` > 1356268911 AND `users`.`id` = '1' GROUP BY `trips`.`id` ORDER BY `trip_places`.`date_from` ASC LIMIT 1 OFFSET 0 ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/Query.php:251
+2012-12-23 15:21:51 --- DEBUG: #0 /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `trips`....', 'Model_Trip', Array)
+#1 /Users/dima/sites/bayes/application/classes/Model/Trip.php(84): Kohana_Database_Query->execute()
+#2 /Users/dima/sites/bayes/application/classes/Controller/Trips.php(24): Model_Trip::getNextTripByUserId('1')
+#3 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Trips->action_next()
+#4 [internal function]: Kohana_Controller->execute()
+#5 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Trips))
+#6 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#7 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#8 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#9 {main} in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/Query.php:251
+2012-12-23 15:55:21 --- EMERGENCY: Database_Exception [ 1146 ]: Table 'bayes.user_profiles' doesn't exist [ SHOW FULL COLUMNS FROM `user_profiles` ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php:358
+2012-12-23 15:55:21 --- DEBUG: #0 /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php(358): Kohana_Database_MySQL->query(1, 'SHOW FULL COLUM...', false)
+#1 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(1665): Kohana_Database_MySQL->list_columns('user_profiles')
+#2 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(441): Kohana_ORM->list_columns()
+#3 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(386): Kohana_ORM->reload_columns()
+#4 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(254): Kohana_ORM->_initialize()
+#5 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(46): Kohana_ORM->__construct(NULL)
+#6 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(1686): Kohana_ORM::factory('User_Profile')
+#7 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(626): Kohana_ORM->_related('user_profile')
+#8 /Users/dima/sites/bayes/modules/orm/classes/Kohana/ORM.php(600): Kohana_ORM->get('user_profile')
+#9 /Users/dima/sites/bayes/application/views/layouts/partials/header.php(27): Kohana_ORM->__get('user_profile')
+#10 /Users/dima/sites/bayes/system/classes/Kohana/View.php(61): include('/Users/dima/sit...')
+#11 /Users/dima/sites/bayes/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/dima/sit...', Array)
+#12 /Users/dima/sites/bayes/application/views/layouts/main.php(23): Kohana_View->render()
+#13 /Users/dima/sites/bayes/system/classes/Kohana/View.php(61): include('/Users/dima/sit...')
+#14 /Users/dima/sites/bayes/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/dima/sit...', Array)
+#15 /Users/dima/sites/bayes/system/classes/Kohana/View.php(228): Kohana_View->render()
+#16 /Users/dima/sites/bayes/system/classes/Kohana/Response.php(160): Kohana_View->__toString()
+#17 /Users/dima/sites/bayes/application/classes/My/Layout/Controller.php(98): Kohana_Response->body(Object(View))
+#18 /Users/dima/sites/bayes/application/classes/Controller/Messages.php(24): My_Layout_Controller->render()
+#19 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Messages->action_create()
+#20 [internal function]: Kohana_Controller->execute()
+#21 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Messages))
+#22 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#23 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#24 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#25 {main} in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/MySQL.php:358
+2012-12-23 16:27:38 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Country' not found ~ MODPATH/orm/classes/Kohana/ORM.php [ 46 ] in :
+2012-12-23 16:27:38 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2012-12-23 16:39:44 --- EMERGENCY: Kohana_Exception [ 0 ]: Cannot update user_profile model because it is not loaded. ~ MODPATH/orm/classes/Kohana/ORM.php [ 1354 ] in /Users/dima/sites/bayes/application/classes/Model/User/Profile.php:48
+2012-12-23 16:39:44 --- DEBUG: #0 /Users/dima/sites/bayes/application/classes/Model/User/Profile.php(48): Kohana_ORM->update()
+#1 /Users/dima/sites/bayes/application/classes/Controller/User.php(43): Model_User_Profile->update_profile(Array, Array, NULL)
+#2 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_User->action_save()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#5 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#7 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#8 {main} in /Users/dima/sites/bayes/application/classes/Model/User/Profile.php:48
+2012-12-23 19:14:00 --- EMERGENCY: ErrorException [ 1 ]: Call to undefined method Model_Message::save_message() ~ APPPATH/classes/Controller/Messages.php [ 49 ] in :
+2012-12-23 19:14:00 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2012-12-23 19:47:18 --- EMERGENCY: View_Exception [ 0 ]: The requested view messages/ham_list could not be found ~ SYSPATH/classes/Kohana/View.php [ 257 ] in /Users/dima/sites/bayes/system/classes/Kohana/View.php:137
+2012-12-23 19:47:18 --- DEBUG: #0 /Users/dima/sites/bayes/system/classes/Kohana/View.php(137): Kohana_View->set_filename('messages/ham_li...')
+#1 /Users/dima/sites/bayes/system/classes/Kohana/View.php(30): Kohana_View->__construct('messages/ham_li...', NULL)
+#2 /Users/dima/sites/bayes/application/classes/My/Layout/Controller.php(64): Kohana_View::factory('messages/ham_li...')
+#3 /Users/dima/sites/bayes/application/classes/Controller/Messages.php(41): My_Layout_Controller->view('messages/ham_li...', Array)
+#4 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Messages->action_learn()
+#5 [internal function]: Kohana_Controller->execute()
+#6 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Messages))
+#7 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#9 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#10 {main} in /Users/dima/sites/bayes/system/classes/Kohana/View.php:137
+2012-12-23 21:43:03 --- EMERGENCY: Database_Exception [ 1064 ]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 [ SELECT `word`, `ham`, `spam` FROM `b8_words` WHERE `word` IN () ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/Query.php:251
+2012-12-23 21:43:03 --- DEBUG: #0 /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `word`, ...', false, Array)
+#1 /Users/dima/sites/bayes/modules/B8/classes/B8/Storage/Default.php(171): Kohana_Database_Query->execute('default')
+#2 /Users/dima/sites/bayes/modules/B8/classes/B8/Core.php(324): B8_Storage_Default->process_text(Array, 'ham', 'learn')
+#3 /Users/dima/sites/bayes/modules/B8/classes/B8/Core.php(290): B8_Core->process_text(NULL, 'ham', 'learn')
+#4 /Users/dima/sites/bayes/application/classes/Controller/Messages.php(41): B8_Core->learn(NULL, 'ham')
+#5 /Users/dima/sites/bayes/system/classes/Kohana/Controller.php(84): Controller_Messages->action_learn()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Messages))
+#8 /Users/dima/sites/bayes/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/dima/sites/bayes/system/classes/Kohana/Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/dima/sites/bayes/index.php(118): Kohana_Request->execute()
+#11 {main} in /Users/dima/sites/bayes/modules/database/classes/Kohana/Database/Query.php:251
